@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/chat', async (req, res) => {
-  const { model = 'llama3', messages = [] } = req.body || {};
+  const { model = 'llama3.2:1b', messages = [] } = req.body || {};
   const r = await fetch('http://127.0.0.1:11434/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -17,6 +17,12 @@ app.post('/chat', async (req, res) => {
   });
   const data = await r.json();
   res.json(data);
+});
+
+app.get('/chat', async (req, res) => {
+
+  res.json({ message: "Hello from the GET /chat endpoint!" });
+
 });
 
 app.listen(3000, () => console.log("UI dispo sur http://localhost:3000"));

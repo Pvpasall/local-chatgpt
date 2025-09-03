@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8" />
   <title>Mon Chat Local</title>
@@ -13,12 +14,14 @@
       flex-direction: column;
       height: 100vh;
     }
+
     header {
       padding: 12px 20px;
       border-bottom: 1px solid #ddd;
       background: #fff;
       font-weight: 600;
     }
+
     .chat {
       flex: 1;
       overflow-y: auto;
@@ -27,6 +30,7 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .msg {
       max-width: 75%;
       padding: 10px 14px;
@@ -34,22 +38,26 @@
       line-height: 1.4;
       white-space: pre-wrap;
     }
+
     .me {
       align-self: flex-end;
       background: #007aff;
       color: #fff;
     }
+
     .bot {
       align-self: flex-start;
       background: #e5e7eb;
       color: #111;
     }
+
     .composer {
       display: flex;
       border-top: 1px solid #ddd;
       padding: 10px;
       background: #fff;
     }
+
     textarea {
       flex: 1;
       border: 1px solid #ccc;
@@ -58,6 +66,7 @@
       font: inherit;
       resize: none;
     }
+
     button {
       margin-left: 8px;
       padding: 0 16px;
@@ -70,6 +79,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>💬 Mon ChatGPT Local</header>
   <div id="chat" class="chat"></div>
@@ -102,7 +112,7 @@
         const r = await fetch('/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ model: 'llama3', messages })
+          body: JSON.stringify({ model: 'llama3.2:1b', messages })
         });
         const data = await r.json();
         const reply = data?.message?.content || "⚠️ Pas de réponse";
@@ -122,4 +132,5 @@
     });
   </script>
 </body>
+
 </html>
