@@ -20,17 +20,19 @@ Proxy : un serveur Node/Express qui redirige vers l’API Ollama.
 
 ### 2. Télécharger un modèle
 
+Liste des models disponible [ollama.com//models](https://ollama.com/search).
+
 Exemple avec Llama 3 :
 
 ```bash
-ollama pull llama3
+ollama pull llama3.2:1b:
 ```
 
 ### 3. Cloner ce repo
 
 ```bash
-git clone https://github.com/votre-user/mon-chat-local.git
-cd mon-chat-local
+git clone https://github.com/Pvpasall/local-chatgpt.git
+cd local-chatgpt
 ```
 
 ### 4. Installer les dépendances serveur
@@ -58,7 +60,7 @@ node server.js
 ## 📂 Structure
 
 ```
-mon-chat-local/
+local-chatgpt/
 ├── server.js       # Proxy Express -> Ollama
 └── public/
     └── index.html  # UI minimaliste style ChatGPT
@@ -69,7 +71,7 @@ mon-chat-local/
 ## 📝 Notes
 
 * Tout tourne **localement**, pas de cloud.
-* Pour utiliser un autre modèle : changez `model: 'llama3'` dans `server.js` ou directement dans l’UI.
+* Pour utiliser un autre modèle : changez `model: 'llama3.2:8b'` dans `server.js` ou directement dans l’UI.
 * Pour éviter des erreurs CORS si vous servez l’UI ailleurs :
 
   ```bash
